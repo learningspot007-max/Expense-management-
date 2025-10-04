@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Expense Approval System</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background: #7ab6f1;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  max-width: 800px;
+  margin: 25px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+form {
+  margin: 10px 0;
+}
+
+input, button {
+  padding: 8px;
+  margin: 5px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.hidden {
+  display: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>Expense Approval</h1>
+    
+    <!-- Login -->
+    <section id="login-section">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input type="password" id="login-password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p>or <a href="#" id="show-signup">Sign up</a></p>
+    </section>
+
+    <!-- Signup -->
+    <section id="signup-section" class="hidden">
+      <h2>Sign Up</h2>
+      <form id="signup-form">
+        <input type="text" id="signup-name" placeholder="Full name" required />
+        <input type="email" id="signup-email" placeholder="Email" required />
+        <input type="password" id="signup-password" placeholder="Password" required />
+        <input type="text" id="signup-company" placeholder="Company name" />
+        <input type="text" id="signup-country" placeholder="Country (e.g. India)" />
+        <button type="submit">Create Account</button>
+      </form>
+      <p><a href="#" id="show-login">Back to login</a></p>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="hidden">
+      <h2>Dashboard</h2>
+      <button id="logout">Logout</button>
+      <div id="user-info"></div>
+
+      <h3>Submit Expense</h3>
+      <form id="expense-form">
+        <input type="number" step="0.01" id="amount" placeholder="Amount" required />
+        <input type="text" id="currency" placeholder="Currency (e.g. USD)" required />
+        <input type="text" id="category" placeholder="Category" />
+        <input type="text" id="description" placeholder="Description" />
+        <input type="file" id="receipt" />
+        <button type="submit">Submit Expense</button>
+      </form>
+
+      <h3>My Expenses</h3>
+      <table id="my-expenses">
+        <thead>
+          <tr>
+            <th>ID</th><th>Amount</th><th>Currency</th><th>Status</th><th>Description</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <h3>Pending Approvals</h3>
+      <table id="pending-approvals">
+        <thead>
+          <tr>
+            <th>ID</th><th>Amount</th><th>Currency</th><th>Description</th><th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
